@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="EmpleadosList">
+
+<head>
+    <title>alumnos</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js\todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div ng-controller="EmpleadosListController as empleadoslist">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" ng-model="empleadoslist.NuevoEmpleadoNombre" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Apellido</label>
+                <input type="text" class="form-control" placeholder="Apellido" ng-model="empleadoslist.NuevoEmpleadoApellido"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Edad</label>
+                <input type="text" class="form-control" placeholder="Edad" ng-model="empleadoslist.NuevoEmpleadoEdad" >
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="passw"><b>Puesto</b></label>
+                <select ng-model="empleadoslist.NewEstado">
+                    <option ng-repeat="estado in empleadoslist.EstadosIndex" value="{{estado.estado}}">{{estado.estado}}
+                    </option>
+                </select>
+            </div>
+            <br>
+                <button class="btn btn-default" ng-click="empleadoslist.addUsuario()">Guardar</button> 
+                
+            <div>
+            <h2 style="text-align: center;">Lista de Personas</h2>
+            <table class="table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Edad</th>   
+                        <th scope="col">Puesto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="usuario in empleadoslist.usuarios">
+                        <td>{{usuario.nombre}}</td>
+                        <td>{{usuario.apellido}}</td>
+                        <td>{{usuario.edad}}</td>
+                        <td>{{usuario.estado}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="empleadoslist.delUsuario(usuario, $index)">Eliminar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-success"
+                                ng-click="empleadoslist.ModificarUsuario(usuario, $index)">Modificar</button>
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
