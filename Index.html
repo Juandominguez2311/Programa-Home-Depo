@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="empleadosApp">
+
+<head>
+    <title>Empleados</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js\NUEVAPRUEBA.js"></script>
+    <link rel="stylesheet" href="todo.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+    <div ng-controller="EmpleadosListController as empleadoList">
+        <form target="_blank" method="post" style="background-color: lightsteelblue; align-content: center;">
+            <fieldset>
+                <legend>Nuevo Empleado</legend>
+                <div>
+                    <label for="usuario"><b>Nombre:</b></label>
+                    <input type="text" placeholder="Nombre" ng-model="empleadoList.NewEmpleadoNombre" required>
+                </div>
+                <br>
+                <div>
+                    <label for="passw"><b>Apellido:</b></label>
+                    <input type="text" placeholder="Apellido" ng-model="empleadoList.NewEmpleadoApellido" required>
+                </div>
+                <br>
+                <div>
+                    <label for="passw"><b>DNI:</b></label>
+                    <input type="number" placeholder="DNI" ng-model="empleadoList.NewEmpleadoDNI" required>
+                </div>
+                <br>
+                <div>
+                    <label for="passw"><b>Estado:</b></label>
+                    <select ng-model="empleadoList.NewEstado">
+                        <option ng-repeat="estado in empleadoList.EstadosIndex" value="{{estado.estado}}">
+                            {{estado.estado}}
+                        </option>
+                    </select>
+                </div>
+                <br>
+                
+            </fieldset>
+            <button class="btn btn-danger" ng-click="empleadoList.addUsuario()">Guardar</button>
+        </form>
+        
+
+
+
+        <button class="btn btn-primary" ng-click="empleadoList.nuevoUsuario()">Nuevo</button>
+        <a href="estados.html"><button class="btn btn-info"> Estados</button></a>
+
+        <div>
+            <h2 style="text-align: center;">Lista de Empleados</h2>
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">dni</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="empleado in empleadoList.empleados">
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.dni}}</td>
+                        <td>{{empleado.estado}}</td>
+                        <td>
+                            <button class="btn btn-danger"
+                                ng-click="empleadoList.delUsuario(empleado, $index)">Eliminar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-success"
+                                ng-click="empleadoList.ModificarUsuario(empleado, $index)">Modificar</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
