@@ -1,0 +1,7 @@
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\bin\Debug\ProyectoHomeDepo.exe.config
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\bin\Debug\ProyectoHomeDepo.exe
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\bin\Debug\ProyectoHomeDepo.pdb
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\obj\Debug\ProyectoHomeDepo.csprojAssemblyReference.cache
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\obj\Debug\ProyectoHomeDepo.csproj.CoreCompileInputs.cache
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\obj\Debug\ProyectoHomeDepo.exe
+C:\Users\juan\source\repos\ProyectoHomeDepo\ProyectoHomeDepo\obj\Debug\ProyectoHomeDepo.pdb
